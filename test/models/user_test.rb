@@ -5,7 +5,8 @@ class UserTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup
-    @user = User.new(name: "Raymond Youssef", email: "rimonomega@gmail.com")
+    @user = User.new(name: "Raymond Youssef", email: "rimonomega@gmail.com",
+                     password: "foobar", password_confirmation: "foobar")
   end
 
   test "should be valid" do
@@ -59,6 +60,11 @@ class UserTest < ActiveSupport::TestCase
     @user.email = mixed_case_email
     @user.save
     assert_equal mixed_case_email.downcase, @user.reload.email
+  end
+
+  test "password should be present (non-blank)" do
+    @user.password = @user.password_confirmation = " " * 6
+    assert_not @user.valid?
   end
 
 end
