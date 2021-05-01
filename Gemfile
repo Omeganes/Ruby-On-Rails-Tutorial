@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.6'
-gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
+gem 'rails',                    '~> 6.1.3', '>= 6.1.3.1'
 gem 'bcrypt'
-gem 'faker', '2.11.0'
+gem 'faker',                    '2.11.0'
+gem 'will_paginate',            '3.3.0'
+gem 'bootstrap-will_paginate',  '1.0.0'
 gem 'bootstrap-sass'
 gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
@@ -26,8 +28,8 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   gem 'listen', '>= 3.2.1'
   gem 'spring', '>= 2.1.1'
-  gem 'spring-watcher-listen', '>= 2.0.1'
-  gem 'rack-mini-profiler', '~> 2.0'
+  gem 'spring-watcher-listen',  '>= 2.0.1'
+  gem 'rack-mini-profiler',     '~> 2.0'
 end
 
 group :test do
