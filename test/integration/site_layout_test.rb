@@ -26,7 +26,6 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     end
 
     test "should have links when logged in " do
-        get login_path
         log_in_as(@user)
         get root_path
         assert_select "a[href=?]", login_path, count: 0

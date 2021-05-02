@@ -8,3 +8,18 @@ yasmin:
   name: Yasmin Nabil
   email: yasmin@example.org
   password_digest: <%= User.digest('password') %>
+
+rogeh:
+  name: Rojeh Youssef
+  email: rojeh@example.com
+  password_digest: <%= User.digest('password') %>
+
+<% 30.times do |n| %>
+
+user_<%= n %>:
+  name: <%= "User #{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+
+
+<% end %>
