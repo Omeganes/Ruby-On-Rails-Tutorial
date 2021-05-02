@@ -3,13 +3,14 @@ raymond:
   name: Raymond Youssef
   email: rimonomega@gmail.com
   password_digest: <%= User.digest('password') %>
+  admin: true
 
 yasmin:
   name: Yasmin Nabil
   email: yasmin@example.org
   password_digest: <%= User.digest('password') %>
 
-rogeh:
+rojeh:
   name: Rojeh Youssef
   email: rojeh@example.com
   password_digest: <%= User.digest('password') %>
