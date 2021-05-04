@@ -57,6 +57,7 @@ class User < ApplicationRecord
         # Creates activation digest before creating
         def create_activation_digest
             self.activation_token = User.new_token
+            # TODO not using "self" caused a problem unlike the book states
             self.activation_digest = User.digest(self.activation_token)
         end
 
