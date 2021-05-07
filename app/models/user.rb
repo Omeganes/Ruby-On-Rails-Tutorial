@@ -24,14 +24,17 @@ class User < ApplicationRecord
         remember_digest
     end
 
+
     def session_token
         remember_digest || remember
     end
+
 
     # Forgets a user.
     def forget
         update_attribute(:remember_digest, nil)
     end
+
 
     # Return true if the given token matches the digest
     def authenticated?(attribute, token)
@@ -39,6 +42,7 @@ class User < ApplicationRecord
         return false if digest.nil?
         BCrypt::Password.new(digest).is_password?(token)
     end
+
 
     # Activates an account
     def activate
@@ -48,10 +52,12 @@ class User < ApplicationRecord
         )
     end
 
+
     # Sends activation email.
     def send_activation_email
         UserMailer.account_activation(self).deliver_now
     end
+
 
     # Sets the password reset attributes.
     def create_reset_digest
@@ -62,14 +68,22 @@ class User < ApplicationRecord
         )
     end
 
+
     # Sends password reset email.
     def send_password_reset_email
         UserMailer.password_reset(self).deliver_now
     end
 
+
     # Returns true if a password reset has expired.
     def password_reset_expired?
         reset_sent_at < 2.hours.ago
+    end
+
+
+    # Defines a proto-feed.
+    def feed
+        Micropost.where("user_id = ?", id)
     end
 
     class << self
@@ -94,6 +108,7 @@ class User < ApplicationRecord
         def downcase_email
             email.downcase!
         end
+
 
         # Creates activation digest before creating
         def create_activation_digest
