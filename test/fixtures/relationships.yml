@@ -1,2 +1,20 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+one:
+  follower: raymond
+  followed: rojeh
+
+
+two:
+  follower: raymond
+  followed: gerges
+
+
+three:
+  follower: yasmin
+  followed: raymond
+
+
+four:
+  follower: gerges
+  followed: raymond
